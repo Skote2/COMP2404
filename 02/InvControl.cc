@@ -133,64 +133,64 @@ void InvControl::initProducts()
      alloated.  Don't worry, we'll fix this in Assignment #2.
   */
 
-  Product prod01("Sudzzy Dish Soap", "1 L", 10, 3.99f);
+  Product prod01 = new Produc("Sudzzy Dish Soap", "1 L", 10, 3.99f);
   store.addProd(prod01);
 
-  Product prod02("Peachy Laundry Soap", "2 L", 3, 8.99f);
+  Product prod02 = new Product("Peachy Laundry Soap", "2 L", 3, 8.99f);
   store.addProd(prod02);
 
-  Product prod03("Daisy's Spicy Chili", "150 g", 5, 1.29f);
+  Product prod03 = new Product("Daisy's Spicy Chili", "150 g", 5, 1.29f);
   store.addProd(prod03);
 
-  Product prod04("Daisy's Maple Baked Beans", "220 g", 2, 2.49f);
+  Product prod04 = new Product("Daisy's Maple Baked Beans", "220 g", 2, 2.49f);
   store.addProd(prod04);
 
-  Product prod05("Marmaduke Hot Dogs", "12-pack", 4, 4.99f);
+  Product prod05 = new Product("Marmaduke Hot Dogs", "12-pack", 4, 4.99f);
   store.addProd(prod05);
 
-  Product prod06("Garfield Hamburger Patties", "900 g", 2, 11.99f);
+  Product prod06 = new Product("Garfield Hamburger Patties", "900 g", 2, 11.99f);
   store.addProd(prod06);
 
-  Product prod07("Chunky Munkey Ice Cream", "2 L", 1, 2.97f);
+  Product prod07 = new Product("Chunky Munkey Ice Cream", "2 L", 1, 2.97f);
   store.addProd(prod07);
 
-  Product prod08("It's Your Bday Chocolate Cake", "500 g", 0, 12.99f);
+  Product prod08 = new Product("It's Your Bday Chocolate Cake", "500 g", 0, 12.99f);
   store.addProd(prod08);
 
-  Product prod09("Happy Baker's Hot dog buns", "12-pack", 5, 3.49f);
+  Product prod09 = new Product("Happy Baker's Hot dog buns", "12-pack", 5, 3.49f);
   store.addProd(prod09);
 
-  Product prod10("Happy Baker's Hamburger buns", "8-pack", 8, 3.99f);
+  Product prod10 = new Product("Happy Baker's Hamburger buns", "8-pack", 8, 3.99f);
   store.addProd(prod10);
 
-  Product prod11("Moo-cow 2% milk", "1 L", 7, 2.99f);
+  Product prod11 = new Product("Moo-cow 2% milk", "1 L", 7, 2.99f);
   store.addProd(prod11);
 
-  Product prod12("Moo-cow 2% milk", "4 L", 3, 4.99f);
+  Product prod12 = new Product("Moo-cow 2% milk", "4 L", 3, 4.99f);
   store.addProd(prod12);
 
-  Product prod13("Moo-cow 5% coffee cream", "250 ml", 4, 1.49f);
+  Product prod13 = new Product("Moo-cow 5% coffee cream", "250 ml", 4, 1.49f);
   store.addProd(prod13);
 
-  Product prod14("Good Morning Granola Cereal", "400 g", 2, 5.49f);
+  Product prod14 = new Product("Good Morning Granola Cereal", "400 g", 2, 5.49f);
   store.addProd(prod14);
 
-  Product prod15("Lightening Bolt Instant Coffee", "150 g", 8, 4.99f);
+  Product prod15 = new Product("Lightening Bolt Instant Coffee", "150 g", 8, 4.99f);
   store.addProd(prod15);
 
-  Product prod16("Lightening Bolt Decaf Coffee", "100 g", 2, 4.99f);
+  Product prod16 = new Product("Lightening Bolt Decaf Coffee", "100 g", 2, 4.99f);
   store.addProd(prod16);
 
-  Product prod17("Munchies BBQ Chips", "250 g", 7, 2.99f);
+  Product prod17 = new Product("Munchies BBQ Chips", "250 g", 7, 2.99f);
   store.addProd(prod17);
 
-  Product prod18("Munchies Ketchup Chips", "250 g", 3, 2.99f);
+  Product prod18 = new Product("Munchies Ketchup Chips", "250 g", 3, 2.99f);
   store.addProd(prod18);
 
-  Product prod19("Dogbert Salted Chips", "210 g", 4, 1.99f);
+  Product prod19 = new Product("Dogbert Salted Chips", "210 g", 4, 1.99f);
   store.addProd(prod19);
 
-  Product prod20("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f);
+  Product prod20 = new Product("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f);
   store.addProd(prod20);
 
 }
