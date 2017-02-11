@@ -27,11 +27,11 @@ class CustArray
 {
   public:
     CustArray();
-    void add(Customer&);
-    Customer& get(int);
+    void add(Customer*);
+    Customer* get(int);
     int getSize();
   private:
-    Customer elements[MAX_ARR];
+    Customer* elements[MAX_ARR];
     int size;
 };
 

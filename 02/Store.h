@@ -36,13 +36,13 @@
 class Store
 {
   public:
-    void       addProd(Product&);
-    void       addCust(Customer&);
+    void       addProd(Product*);
+    void       addCust(Customer*);
     void       purchaseProduct(Customer*, int[]);
-    Product&   getProduct(int&);
-    Customer&  getCustomer(int&);
-    ProdArray& getStock();
-    CustArray& getCustomers();
+    Product*   getProduct(int&);
+    Customer*  getCustomer(int&);
+    ProdArray* getStock();
+    CustArray* getCustomers();
   private:
     ProdArray  stock;
     CustArray  customers;

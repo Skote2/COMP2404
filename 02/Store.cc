@@ -16,34 +16,34 @@
 #include <iomanip>
 #include "Store.h"
 
-Product&  Store::getProduct(int& prodId)
+Product* Store::getProduct(int& prodId)
 {
   for (int i = 0; i < stock.getSize(); i++)
-    if (stock.get(i).getId() == prodId)
+    if (stock.get(i)->getId() == prodId)
       return stock.get(i);
       //Ids star at 5065
   std::cout << "Error: Product not found" << endl;
   exit(1);
 }
-Customer& Store::getCustomer(int& custId)
+Customer* Store::getCustomer(int& custId)
 {
   for (int i = 0; i < customers.getSize(); i++)
-    if (customers.get(i).getId() == custId)
+    if (customers.get(i)->getId() == custId)
       return customers.get(i);
       //Ids start at 2065
   std::cout << "Error Customer not found" << std::cout;
   exit(1);
 }
 
-ProdArray& Store::getStock()     { return stock; }
-CustArray& Store::getCustomers() { return customers; }
+ProdArray* Store::getStock()     { return &stock; }
+CustArray* Store::getCustomers() { return &customers; }
 
-void Store::addProd(Product& prod)
+void Store::addProd(Product* prod)
 {
   stock.add(prod);
 }
 
-void Store::addCust(Customer& cust)
+void Store::addCust(Customer* cust)
 {
   customers.add(cust);
 }
@@ -56,16 +56,16 @@ void Store::purchaseProduct(Customer *cust, int prodIds[])
   std::cout << "\n            Thankyou\n           Come again\n--------------------------------" << std::endl;
   for(int i = 0; prodIds[i] != 0; i++)
   {
-    Product& prod = stock.findProd(prodIds[i]);
-    if (prod.decrementUnits())
+    Product* prod = stock.findProd(prodIds[i]);
+    if (prod->decrementUnits())
     {
-      (*cust).madePurchase(&prod);
-      cost += prod.getPrice();
-      std::cout << setw(5) << prod.getId() << " " << setw(20) << prod.getName() << setw(6) << prod.getPrice() << endl;
+      (*cust).madePurchase(prod);
+      cost += prod->getPrice();
+      std::cout << setw(5) << prod->getId() << " " << setw(20) << prod->getName() << setw(6) << prod->getPrice() << endl;
     }
     else
     {
-      std::cout << "Error: Out of stock of " << prod.getName() << std::endl;
+      std::cout << "Error: Out of stock of " << prod->getName() << std::endl;
       exit(1);
     }
   }

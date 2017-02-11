@@ -34,14 +34,19 @@ int    Customer::getPoints() { return points; }
 
 void Customer::madePurchase(Product *prod)
 {
-  points += round((*prod).getPrice());
-  purchHistory.newPurchase((*prod).getId());
+  points += round(prod->getPrice());
+  purchHistory.newPurchase(prod->getId());
 }
 
 void Customer::printPurchHistory ()
 {
+  Purchase* purch;
+
   std::cout << setw(6) << "Id " << setw(7) << "#buys" << std::endl;
   for (int i = 0; i < purchHistory.getSize(); i++)
-    std::cout << setw(6) << purchHistory.get(i).getProductId() << setw(7) << purchHistory.get(i).getTimesPurchased() << std::endl;
+  {
+    purch = purchHistory.get(i);
+    std::cout << setw(6) << purch->getProductId() << setw(7) << purch->getTimesPurchased() << std::endl;
+  }
   std::cout << "Total Buys: " << purchHistory.getNumPurchases() << endl;
 }

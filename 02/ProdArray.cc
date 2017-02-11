@@ -25,7 +25,7 @@ ProdArray::ProdArray()
 
 int ProdArray::getSize() { return size; }
 
-Product& ProdArray::get(int index)
+Product* ProdArray::get(int index)
 {
   if (index < 0 || index >= size)
   {
@@ -35,7 +35,7 @@ Product& ProdArray::get(int index)
   return elements[index];
 }
 
-void ProdArray::add(Product& prod)
+void ProdArray::add(Product* prod)
 {
   if (size >= MAX_ARR)
     return;
@@ -43,10 +43,10 @@ void ProdArray::add(Product& prod)
   elements[size++] = prod;
 }
 
-Product& ProdArray::findProd (int prodId)
+Product* ProdArray::findProd (int prodId)
 {
    for (int i = 0; i < size; i++)
-    if (elements[i].getId() == prodId)
+    if (elements[i]->getId() == prodId)
       return elements[i];
       //Ids star at 5065
   std::cout << "Product ID not found" << std::endl;

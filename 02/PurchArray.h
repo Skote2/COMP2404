@@ -21,7 +21,7 @@ class PurchArray
   public:
     PurchArray();
     ~PurchArray();
-    Purchase& get(int);
+    Purchase* get(int);
     int getSize();
     int getNumPurchases();
     int getNumPurchases(int);

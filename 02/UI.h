@@ -45,8 +45,8 @@ class UI
     void promptForFloat(string, float&);
     void printError(string);
     void printUsageError();
-    void printStock(ProdArray&);
-    void printCustomers(CustArray&);
+    void printStock(ProdArray*);
+    void printCustomers(CustArray*);
     void pause();
 
   private:
