@@ -41,6 +41,7 @@ class Product
     int    getUnits();
     bool   decrementUnits();
     float  getPrice();
+    void   addUnits(int&);
   protected:
     static int nextProdId;
     int        id;

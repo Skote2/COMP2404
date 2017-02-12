@@ -29,7 +29,11 @@ string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
+void   Product::addUnits(int& amount)
+{
+  units += amount;
 
+}
 bool   Product::decrementUnits()
 {
   if (units == 0)

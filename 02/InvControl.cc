@@ -75,13 +75,9 @@ void InvControl::processAdmin()
 		view.printError("Amount of units entered is too low ");
 	}
 	else {
-	// Do I have to make a new function or can I just get units and add newUnits to it?
-		cout << prod->getUnits() << endl;
-		prod->getUnits() + newUnits; // Not working, i don't know how to assign stuff, why am i retarded
-		cout << newUnits << endl;
+		prod->addUnits(newUnits);
+		
 	}		
-	// Do I make a destructor here too? 	
-	// delete[prod];	
     }
     else if (choice == 3) {	// print inventory
       view.printStock(store.getStock());
@@ -127,12 +123,8 @@ void InvControl::processCashier()
         }
         store.purchaseProduct(cust, prodIds);
       }
-	/* Guess I make a destructor here? Not sure how im pretty retarded already forgot what you guided me through for this
-	 delete[cust];
-	 for (int i = 0; i < MAX_ARR; i++) {
-	 delete prodIds[i];
-	}*/
-    }
+	}
+    
     else if (choice == 2) {		// return purchases
       view.printError("Feature not implemented");
     }
@@ -141,7 +133,6 @@ void InvControl::processCashier()
       view.printCustomers(store.getCustomers());
       view.pause();
     }
-	// Add destructor here? How the fuck do I do that, im fucking stupid I don't remember tutorial shit
 	
     else {
       break;

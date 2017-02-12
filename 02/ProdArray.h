@@ -30,12 +30,13 @@ class ProdArray
 {
   public:
     ProdArray();
-    void add(Product&);
-    Product& get(int);
-    Product& findProd(int);
+    ~ProdArray();
+    void add(Product*);
+    Product* get(int);
+    Product* findProd(int);
     int getSize();
   private:
-    Product elements[MAX_ARR];
+    Product* elements[MAX_ARR];
     int size;
 };
 

@@ -10,7 +10,7 @@ PurchArray::~PurchArray()
     for(int i = 0; i < arrSize; i++)
         delete pArr[i];
 }
-Purchase& PurchArray::get(int index) { return (*pArr[index]); }
+Purchase* PurchArray::get(int index) { return pArr[index]; }
 int PurchArray::getSize() { return arrSize; }
 int PurchArray::getNumPurchases()
 {return totalPurchases;}
@@ -18,8 +18,8 @@ int PurchArray::getNumPurchases()
 int PurchArray::getNumPurchases(int prodID)
 {
     for (int i = 0; i < arrSize; i++)
-        if ((*pArr[i]).getProductId() == prodID)
-            return (*pArr[i]).getTimesPurchased();
+        if (pArr[i]->getProductId() == prodID)
+            return pArr[i]->getTimesPurchased();
     return 0;
 }
 
@@ -27,7 +27,7 @@ void PurchArray::newPurchase(int prodID)
 {
     int arrID = 0;
     for (; arrID < arrSize; arrID++)
-        if ((*pArr[arrID]).getProductId() == prodID)
+        if (pArr[arrID]->getProductId() == prodID)
             break;
 
     if (arrID == arrSize)
@@ -36,6 +36,6 @@ void PurchArray::newPurchase(int prodID)
         arrSize++;
     }
     else
-        (*pArr[arrID]).newPurchase();
+        pArr[arrID]->newPurchase();
     totalPurchases++;
 }
