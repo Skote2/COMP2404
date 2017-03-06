@@ -13,6 +13,7 @@ ProdList::~ProdList()
 	while(currNode != NULL) 
 	{
 		nextNode = currNode->next;
+		delete currNode->data;
 		delete currNode;
 		currNode = nextNode;
 	}
@@ -24,15 +25,17 @@ void ProdList::add(Product* prod)
 	Node* currNode;
 	Node* prevNode;
 	
-	newProdNode = new Node;
-	newProdNode->data = stu;
-	newProdNode->next = NULL;
 	
+	newProdNode = new Node;
+	newProdNode->data = prod;
+	newProdNode->next = NULL;
+	newProdNode->prev = NULL;
 	currNode = head;
 	prevNode = NULL;
 	
 	while (currNode != NULL) 
 	{
+		//Should be adding in ascending order
 		if (newProdNode->data->getUnits() < currNode->data->getUnits())
 		{
 			break;
@@ -50,6 +53,11 @@ void ProdList::add(Product* prod)
 		prevNode->next = newProdNode;
 	}
 	newProdNode->next = currNode;
+	newProdNode->prev = prevNode;
+	if (currNode != NULL)
+	{
+		currNode->prev = newProdNode;
+	}
 }
 
 void ProdList::remove(Product* prod)
@@ -74,16 +82,42 @@ void ProdList::remove(Product* prod)
 	{
 		prevNode->next = currNode->next;
 	}
+	delete currNode->data;
 	delete currNode;
 }
-/*
+
 void ProdList::reOrg()
 {
-	What the fuck do I do here?
-	I have to sort the list in ascending order of units
-	but what kind of sort is nice and fast for this?
-	She said a bubble sort or another algorithm is fine but
-	I'm shit at doing that since my 1405 skills are ass
+	Node* currNode = head;
+	Node* prevNode = NULL;
+
+	//int size = 0;
+	for(currNode != NULL; prevNode = currNode; currNode = currNode->next)
+	{
+		if(currNode->data->getUnits() < prevNode->data->getUnits())
+		{
+			if(currNode->prev != NULL)
+			{
+				prevNode->prev->next = currNode;
+			}
+			if(currNode->next != NULL)
+			{
+				currNode->next->prev = prevNode;
+			}
+			
+			currNode->prev = prevNode->prev;
+			prevNode->next = currNode->next;
+			currNode->next = prevNode;
+			prevNode->prev = currNode; 
+			if(head == prevNode)
+			{
+				head = currNode;
+			}
+			if(prevNode->next = NULL)
+			{
+				break;
+			}
+		}
+	}
 }
 
-*/

@@ -2,8 +2,8 @@
 #define ProdList_H
 
 #include <string>
-#include "Prodcut.h"
-
+#include "Product.h"
+#include "defs.h"
 // This linkedlist is basically me watching the lecture and trying To understand it
 // Christine said a finding function will be useful
 // Need to make sure on memory leaks
@@ -17,6 +17,7 @@ class ProdList
 		private:
 			Product* data;
 			Node* next;
+			Node* prev;
 	};
 	
 	public:
@@ -24,7 +25,7 @@ class ProdList
 	~ProdList();
 	void add(Product*);
 	void remove(Product*);
-	// void reOrg();
+	void reOrg();
 	private:
 	Node* head;
 
