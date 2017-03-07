@@ -25,6 +25,7 @@ class ProdList
 		~ProdList();
 		void add(Product*);
 		void remove(Product*);
+		void toString (string&);
 		void reOrg();
 		int getSize();
 		Product* get(int);

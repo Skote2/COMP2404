@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 using namespace std;
 
 #include "ProdList.h"
@@ -86,6 +88,40 @@ void ProdList::remove(Product* prod)
 	delete currNode;
 }
 
+void ProdList::reOrg()
+{
+	Node* currNode = head;
+	Node* prevNode = NULL;
+
+	//int size = 0;
+	for(currNode != NULL; prevNode = currNode; currNode = currNode->next)
+	{
+		if(currNode->data->getUnits() < prevNode->data->getUnits())
+		{
+			if(currNode->prev != NULL)
+			{
+				prevNode->prev->next = currNode;
+			}
+			if(currNode->next != NULL)
+			{
+				currNode->next->prev = prevNode;
+			}
+			
+			currNode->prev = prevNode->prev;
+			prevNode->next = currNode->next;
+			currNode->next = prevNode;
+			prevNode->prev = currNode; 
+			if(head == prevNode)
+			{
+				head = currNode;
+			}
+			if(prevNode->next = NULL)
+			{
+				break;
+			}
+		}
+	}
+}
 
 int ProdList::getSize()
 {
@@ -122,38 +158,22 @@ Product* ProdList::findProd(int id)
 	return 0;
 }
 
-void ProdList::reOrg()
+void ProdList::toString (string& outStr)
 {
-	Node* currNode = head;
-	Node* prevNode = NULL;
-
-	//int size = 0;
-	for(currNode != NULL; prevNode = currNode; currNode = currNode->next)
+	stringstream ss;
+	outStr += "STOCK: \n\n";
+  	outStr += " ID                                 Name             Size    Qty    Price\n";
+  	outStr += " --                                 ----             ----    ---    -----\n";
+	for (int i=0; i< getSize(); i++) 
 	{
-		if(currNode->data->getUnits() < prevNode->data->getUnits())
-		{
-			if(currNode->prev != NULL)
-			{
-				prevNode->prev->next = currNode;
-			}
-			if(currNode->next != NULL)
-			{
-				currNode->next->prev = prevNode;
-			}
-			
-			currNode->prev = prevNode->prev;
-			prevNode->next = currNode->next;
-			currNode->next = prevNode;
-			prevNode->prev = currNode; 
-			if(head == prevNode)
-			{
-				head = currNode;
-			}
-			if(prevNode->next = NULL)
-			{
-				break;
-			}
-		}
-	}
-}
+		Product* prod = get(i);
 
+		ss << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
+			<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
+
+		ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
+
+		//ss.str("");
+	}
+		outStr += ss.str();
+}
