@@ -154,16 +154,40 @@ void ProdList::toString (string& outStr)
 	outStr += "STOCK: \n\n";
   	outStr += " ID                                 Name             Size    Qty    Price\n";
   	outStr += " --                                 ----             ----    ---    -----\n";
-	for (int i=0; i< getSize(); i++) 
+	
+	if (head  != 0)
 	{
-		Product* prod = get(i);
-
+		Node* curr = head;
+		Product* prod = curr->data;
 		ss << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
 			<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
 
 		ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
 
-		//ss.str("");
-	}
+		while (curr->next != 0)
+		{
+			curr = curr->next;
+			Product* prod = curr->data;
+
+			ss << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
+				<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
+
+			ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
+
+			//ss.str("");
+		}
+		while (curr->prev != 0)
+		{
+			curr = curr->prev;
+			Product* prod = curr->data;
+
+			ss << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
+				<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
+
+			ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
+
+			//ss.str("");
+		}
 		outStr += ss.str();
+	}
 }
