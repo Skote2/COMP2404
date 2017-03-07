@@ -167,7 +167,7 @@ void ProdList::toString (string& outStr)
 		while (curr->next != 0)
 		{
 			curr = curr->next;
-			Product* prod = curr->data;
+			prod = curr->data;
 
 			ss << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
 				<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
@@ -176,10 +176,14 @@ void ProdList::toString (string& outStr)
 
 			//ss.str("");
 		}
+		ss << endl << curr->data->getId()   << "  " << setw(40) << prod->getName() << "  "
+				<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
+
+			ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
 		while (curr->prev != 0)
 		{
 			curr = curr->prev;
-			Product* prod = curr->data;
+			prod = curr->data;
 
 			ss << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
 				<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
