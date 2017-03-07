@@ -177,9 +177,9 @@ void ProdList::toString (string& outStr)
 			//ss.str("");
 		}
 		ss << endl << curr->data->getId()   << "  " << setw(40) << prod->getName() << "  "
-				<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
+			<< setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
 
-			ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
+		ss << "$" << setw(6) << fixed << setprecision(2) << prod->getPrice() << endl;
 		while (curr->prev != 0)
 		{
 			curr = curr->prev;
