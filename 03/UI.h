@@ -17,6 +17,7 @@
 #include <string>
 using namespace std;
 
+#include "ProdList.h"
 #include "ProdArray.h"
 #include "CustArray.h"
 
@@ -46,6 +47,7 @@ class UI
     void printError(string);
     void printUsageError();
     void printStock(ProdArray*);
+    void printStock(ProdList*);
     void printCustomers(CustArray*);
     void pause();
 

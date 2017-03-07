@@ -21,13 +21,16 @@ class ProdList
 	};
 	
 	public:
-	ProdList();
-	~ProdList();
-	void add(Product*);
-	void remove(Product*);
-	void reOrg();
+		ProdList();
+		~ProdList();
+		void add(Product*);
+		void remove(Product*);
+		void reOrg();
+		int getSize();
+		Product* get(int);
+		Product* findProd(int);
 	private:
-	Node* head;
+		Node* head;
 
 };
 

@@ -81,6 +81,28 @@ void UI::printStock(ProdArray* arr)
   }
 }
 
+void UI::printStock(ProdList* list)
+{
+  stringstream ss;
+
+  cout << endl << "STOCK: " << endl << endl;
+  cout << " ID                                 Name             Size    Qty    Price" << endl;
+  cout << " --                                 ----             ----    ---    -----" << endl;
+
+  for (int i=0; i< list->getSize(); i++) {
+
+    Product* prod = list->get(i);
+
+    cout << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
+         << setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
+
+    ss << setw(6) << fixed << setprecision(2) << prod->getPrice();
+
+    cout << "$" << ss.str() << endl;
+    ss.str("");
+  }
+}
+
 void UI::printCustomers(CustArray* arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;

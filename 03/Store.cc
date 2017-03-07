@@ -35,7 +35,7 @@ Customer* Store::getCustomer(int& custId)
   exit(1);
 }
 
-ProdArray* Store::getStock()     { return &stock; }
+ProdList* Store::getStock()     { return &stock; }
 CustArray* Store::getCustomers() { return &customers; }
 
 void Store::addProd(Product* prod)

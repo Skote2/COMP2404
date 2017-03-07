@@ -86,6 +86,42 @@ void ProdList::remove(Product* prod)
 	delete currNode;
 }
 
+
+int ProdList::getSize()
+{
+	int c = 0;
+	Node* curr = head;
+	while (curr != 0)
+	{
+		curr = curr->next;
+		c++;
+	}
+	return c;
+}
+Product* ProdList::get(int i)
+{
+	int c = 0;
+	Node* curr = head;
+	while (curr != 0 && c < i)
+	{
+		curr = curr->next;
+		c++;
+	}
+	return curr->data;
+}
+Product* ProdList::findProd(int id)
+{
+	Node* curr = head;
+	while (curr != 0)
+	{
+		if (curr->data->getId() == id)
+			return curr->data;
+		else
+			curr = curr->next;
+	}
+	return 0;
+}
+
 void ProdList::reOrg()
 {
 	Node* currNode = head;
