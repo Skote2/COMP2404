@@ -4,6 +4,10 @@
 #include <string>
 #include "Product.h"
 #include "defs.h"
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+using namespace std;
 // This linkedlist is basically me watching the lecture and trying To understand it
 // Christine said a finding function will be useful
 // Need to make sure on memory leaks

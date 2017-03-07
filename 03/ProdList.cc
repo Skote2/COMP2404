@@ -1,8 +1,3 @@
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-using namespace std;
-
 #include "ProdList.h"
 
 ProdList::ProdList() : head(0) { }
@@ -90,37 +85,32 @@ void ProdList::remove(Product* prod)
 
 void ProdList::reOrg()
 {
-	Node* currNode = head;
-	Node* prevNode = NULL;
-
-	//int size = 0;
-	for(currNode != NULL; prevNode = currNode; currNode = currNode->next)
-	{
-		if(currNode->data->getUnits() < prevNode->data->getUnits())
-		{
-			if(currNode->prev != NULL)
+	Node* currNode;
+	bool flag;
+	
+	if (head != 0)
+		do {
+			currNode = head->next;
+			flag = false;
+			while (currNode != 0)
 			{
-				prevNode->prev->next = currNode;
+				if(currNode->data->getUnits() < currNode->prev->data->getUnits())
+				{
+					flag = true;
+					currNode->prev->next = currNode->next;
+					if (currNode->next != 0)
+						currNode->next->prev = currNode->prev;
+					currNode->next = currNode->prev;
+					currNode->prev = currNode->prev->prev;
+					if (currNode->prev != 0)
+						currNode->prev->next = currNode;
+					else
+						head = currNode;
+					currNode->next->prev = currNode;
+				}
+				currNode = currNode->next;
 			}
-			if(currNode->next != NULL)
-			{
-				currNode->next->prev = prevNode;
-			}
-			
-			currNode->prev = prevNode->prev;
-			prevNode->next = currNode->next;
-			currNode->next = prevNode;
-			prevNode->prev = currNode; 
-			if(head == prevNode)
-			{
-				head = currNode;
-			}
-			if(prevNode->next = NULL)
-			{
-				break;
-			}
-		}
-	}
+		} while (flag);
 }
 
 int ProdList::getSize()

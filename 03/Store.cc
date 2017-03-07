@@ -41,6 +41,7 @@ CustArray* Store::getCustomers() { return &customers; }
 void Store::addProd(Product* prod)
 {
   stock.add(prod);
+  stock.reOrg();
 }
 
 void Store::addCust(Customer* cust)
@@ -71,4 +72,5 @@ void Store::purchaseProduct(Customer *cust, int prodIds[])
   }
   std::cout << "\nPoints Earned: " << ((*cust).getPoints() - points) << std::endl;
   std::cout << "Your total: $" << cost << std::endl;
+  stock.reOrg();
 }

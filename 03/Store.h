@@ -42,7 +42,7 @@ class Store
     void       purchaseProduct(Customer*, int[]);
     Product*   getProduct(int&);
     Customer*  getCustomer(int&);
-    ProdList* getStock();
+    ProdList*  getStock();
     CustArray* getCustomers();
   private:
     ProdList  stock;
