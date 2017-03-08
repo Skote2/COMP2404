@@ -24,9 +24,6 @@ ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
 ProdList.o:	ProdList.cc ProdList.h Product.h defs.h
 	g++ -c ProdList.cc
 
-ProdList.o:	ProdList.cc ProdList.h Product.h defs.h
-	g++ -c ProdList.cc
-
 CustArray.o:	CustArray.cc CustArray.h Customer.h defs.h
 	g++ -c CustArray.cc
 
@@ -36,7 +33,7 @@ Customer.o:	Customer.cc Customer.h
 Purchase.o:	Purchase.cc Purchase.h
 	g++ -c Purchase.cc
 
-PurchArray.o:	PurchArray.cc PurchArray.h
+PurchArray.o:	PurchArray.cc PurchArray.h ProdList.h ProdArray.h
 	g++ -c PurchArray.cc
 
 clean:
