@@ -115,8 +115,10 @@ void InvControl::processCashier()
     if (choice == 1) {			// purchases
       view.promptForInt("What is your cutomer Id ", custId);
       Customer* cust = store.getCustomer(custId);
+      while(numIds != 0) {
       view.promptForInt("Enter Ids of items you wish to buy, ending with zero ", prodIds[numIds]);
       numIds++;
+      }
       if (prodIds[numIds-1] != 0)
       {
         while (1)
